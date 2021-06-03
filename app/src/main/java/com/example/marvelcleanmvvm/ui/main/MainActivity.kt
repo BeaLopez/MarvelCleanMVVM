@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.example.marvelcleanmvvm.databinding.ActivityMainBinding
-import com.example.marvelcleanmvvm.ui.base.BaseActivity
+import com.example.marvelcleanmvvm.ui.common.base.BaseActivity
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private lateinit var mViewModel: MainViewModel
     private lateinit var mBinding: ActivityMainBinding
@@ -17,7 +17,5 @@ class MainActivity : BaseActivity() {
         setContentView(mBinding.root)
 
         mViewModel = ViewModelProvider(this).get()
-        mBinding.mViewModel = mViewModel
-
     }
 }
