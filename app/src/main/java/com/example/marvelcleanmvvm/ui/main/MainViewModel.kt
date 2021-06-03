@@ -3,8 +3,15 @@ package com.example.marvelcleanmvvm.ui.main
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.usecases.GetCharacterListUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(private val getCharacterListUseCase: GetCharacterListUseCase) :
+    ViewModel() {
 
     private val _goToDetail = MutableLiveData<Int>()
     val goToDetail: LiveData<Int> get() = _goToDetail
@@ -13,7 +20,11 @@ class MainViewModel : ViewModel() {
     val showProgress: LiveData<Boolean> get() = _showProgress
 
     init {
-        _showProgress.value = false
+        _showProgress.value = true
+        viewModelScope.launch {
+            getCharacterListUseCase.invoke()
+            _showProgress.postValue(false)
+        }
     }
 
     fun onClickCharacter() {

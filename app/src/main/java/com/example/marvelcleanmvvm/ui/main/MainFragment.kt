@@ -1,24 +1,20 @@
 package com.example.marvelcleanmvvm.ui.main
 
-import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.marvelcleanmvvm.R
 import com.example.marvelcleanmvvm.databinding.FragmentMainBinding
 import com.example.marvelcleanmvvm.ui.common.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainFragment : BaseFragment<FragmentMainBinding>() {
 
-    private lateinit var viewModel: MainViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-    }
+    private val viewModel: MainViewModel by viewModels()
 
     override fun attachObserver() {
         viewModel.goToDetail.observe(viewLifecycleOwner, {
-            findNavController().navigate(MainFragmentDirections.actionHomeFragmentToDetailFragment())
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToDetailFragment())
         })
     }
 

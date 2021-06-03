@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/mainFragment">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/mainFragment"
         android:name="com.example.marvelcleanmvvm.ui.main.MainFragment"
-        android:label="home_fragment"
+        android:label="main_fragment"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_homeFragment_to_detailFragment"
+            android:id="@+id/action_mainFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
 
@@ -19,5 +19,5 @@
         android:id="@+id/detailFragment"
         android:name="com.example.marvelcleanmvvm.ui.detail.DetailFragment"
         android:label="detail_fragment"
-        tools:layout="@layout/fragment_Detail" />
+        tools:layout="@layout/fragment_detail" />
 </navigation>

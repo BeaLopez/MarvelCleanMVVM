@@ -1,19 +1,17 @@
 package com.example.marvelcleanmvvm.ui.detail
 
 import android.os.Bundle
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.marvelcleanmvvm.R
 import com.example.marvelcleanmvvm.databinding.FragmentDetailBinding
 import com.example.marvelcleanmvvm.ui.common.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
-    private lateinit var viewModel: DetailViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
-    }
+    private val viewModel: DetailViewModel by viewModels()
 
     override fun attachObserver() {}
 
