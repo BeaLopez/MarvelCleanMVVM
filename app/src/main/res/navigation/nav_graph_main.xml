@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.marvelcleanmvvm.ui.home.HomeFragment"
+        android:name="com.example.marvelcleanmvvm.ui.main.MainFragment"
         android:label="home_fragment"
-        tools:layout="@layout/home_fragment" >
+        tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
@@ -19,5 +19,5 @@
         android:id="@+id/detailFragment"
         android:name="com.example.marvelcleanmvvm.ui.detail.DetailFragment"
         android:label="detail_fragment"
-        tools:layout="@layout/detail_fragment" />
+        tools:layout="@layout/fragment_Detail" />
 </navigation>

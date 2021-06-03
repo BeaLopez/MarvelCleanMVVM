@@ -1,25 +1,24 @@
 package com.example.marvelcleanmvvm.ui.detail
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import com.example.marvelcleanmvvm.R
-import com.example.marvelcleanmvvm.databinding.DetailFragmentBinding
+import com.example.marvelcleanmvvm.databinding.FragmentDetailBinding
 import com.example.marvelcleanmvvm.ui.common.base.BaseFragment
-import com.example.marvelcleanmvvm.ui.home.HomeViewModel
 
-class DetailFragment : BaseFragment<DetailFragmentBinding>() {
+class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
-    private lateinit var viewModel: HomeViewModel
+    private lateinit var viewModel: DetailViewModel
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
     }
 
     override fun attachObserver() {}
 
-    override fun setVariablesToDataBinding(dataBinding: DetailFragmentBinding) {}
+    override fun setVariablesToDataBinding() {}
 
-    override fun getLayoutId() = R.layout.detail_fragment
+    override fun getLayoutId() = R.layout.fragment_detail
 
 }

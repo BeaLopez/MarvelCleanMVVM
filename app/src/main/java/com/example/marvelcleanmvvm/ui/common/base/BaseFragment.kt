@@ -14,22 +14,18 @@ abstract class BaseFragment<VB : ViewDataBinding> : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mViewDataBinding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
-        setVariablesToDataBinding(mViewDataBinding)
         return mViewDataBinding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        attachObserver()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mViewDataBinding.lifecycleOwner = viewLifecycleOwner
         mViewDataBinding.executePendingBindings()
+        attachObserver()
+        setVariablesToDataBinding()
     }
 
-    abstract fun setVariablesToDataBinding(dataBinding: VB)
+    abstract fun setVariablesToDataBinding()
     abstract fun attachObserver()
     abstract fun getLayoutId(): Int
 }
