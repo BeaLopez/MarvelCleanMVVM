@@ -5,7 +5,7 @@ import com.example.domain.Character
 
 class GetCharacterListUseCase(private val marvelRepository: MarvelRepository) {
 
-    suspend fun invoke(): List<Character> {
+    suspend fun invoke(): Result<List<Character>> {
         return marvelRepository.getCharacters()
     }
 

@@ -1,6 +1,6 @@
 package com.example.marvelcleanmvvm.di
 
-import com.example.marvelcleanmvvm.framework.data.MarvelRemoteDataSourceImpl
+import com.example.marvelcleanmvvm.framework.data.server.MarvelRemoteDataSourceImpl
 import com.example.source.MarvelDataSource
 import dagger.Module
 import dagger.Provides
